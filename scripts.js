@@ -1,6 +1,7 @@
 const startPauseButton = document.querySelector(".start");
 const resetButton = document.querySelector(".reset");
 const setButton = document.querySelector(".set");
+const clearButton = document.querySelector(".clear");
 
 let msec = 0;
 let sec = 0;
@@ -48,11 +49,20 @@ const resetHandler = () => {
 const setHandler = () => {
 	const timeList = document.querySelector(".timeList");
 	timeList.style.display = "flex";
-	const p = document.createElement("p");
-	p.innerHTML = `${min}:${sec}:${msec}`;
-	timeList.prepend(p);
+	const timeListUL = document.querySelector(".timeList ul");
+	const li = document.createElement("li");
+	li.innerHTML = `${min}:${sec}:${msec}`;
+	timeListUL.append(li);
+};
+
+const clearHandler = () => {
+	const timeList = document.querySelector(".timeList");
+	timeList.style.display = "none";
+	const timeListUL = document.querySelector(".timeList ul");
+	timeListUL.innerHTML = "";
 };
 
 startPauseButton.addEventListener("click", startPauseHandler);
 resetButton.addEventListener("click", resetHandler);
 setButton.addEventListener("click", setHandler);
+clearButton.addEventListener("click", clearHandler);
