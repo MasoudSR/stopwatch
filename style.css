@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset{
+    display: none;
+}
+
+h1{
+    margin: 50px;
+}
+
+.timer{
+    font-size: 21px;
+    font-weight: bold;
+    background-color: antiquewhite;
+    width: 200px;
+    padding: 20px;
+text-align: center;
+border-radius: 10px;
+}
+
+.buttons{
+    margin-top: 20px;
+    background-color: aqua;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.button{
+    background-color: aqua;
+    padding: 20px;
+    border:0px;
+    border-radius: 20px;
+    width: 100px;
+}
+
+
