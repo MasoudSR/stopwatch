@@ -56,7 +56,7 @@ h1 {
 
 .msecspinner {
     position: absolute;
-    top: 140px;
+    top: 130px;
     width: 270px;
     height: 270px;
     border: 16px solid #f3f3f3;
@@ -67,7 +67,7 @@ h1 {
 
 .secspinner {
     position: absolute;
-    top: 150px;
+    top: 140px;
     width: 250px;
     height: 250px;
     border: 16px solid #f3f3f3;
