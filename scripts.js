@@ -8,12 +8,13 @@ let sec = 0;
 let min = 0;
 let timerInProgress = false;
 let startTimer;
+let timeListHeight = 80
 
 const startPauseHandler = () => {
 	if (!timerInProgress) {
 		startPauseButton.innerHTML = "Pause";
+		startPauseButton.style.width="350px"
 		setButton.style.display = "inline";
-		resetButton.style.display = "none";
 		document.querySelector(".buttons").style.height="78px"
 		startTimer = setInterval(() => {
 			msec++;
@@ -46,11 +47,18 @@ const resetHandler = () => {
 	document.querySelector(".msec").innerHTML = "00";
 	document.querySelector(".sec").innerHTML = "00";
 	document.querySelector(".min").innerHTML = "00";
+	startPauseButton.style.width="700px"
+	setButton.style.display="none"
+	document.querySelector(".buttons").style.height="78px"
+	startPauseButton.innerHTML="Start"
 };
 
 const setHandler = () => {
+	clearButton.style.display="inline"
 	const timeList = document.querySelector(".timeList");
 	timeList.style.display = "flex";
+	timeListHeight += 77
+	timeList.style.height = `${timeListHeight}px`
 	const timeListUL = document.querySelector(".timeList ul");
 	const li = document.createElement("li");
 	li.innerHTML = `${min}:${sec}:${msec}`;
@@ -59,7 +67,8 @@ const setHandler = () => {
 
 const clearHandler = () => {
 	const timeList = document.querySelector(".timeList");
-	timeList.style.display = "none";
+	timeList.style.height = "0";
+	timeListHeight = 80
 	const timeListUL = document.querySelector(".timeList ul");
 	timeListUL.innerHTML = "";
 };
