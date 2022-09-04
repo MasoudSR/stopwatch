@@ -14,6 +14,7 @@ const startPauseHandler = () => {
 		startPauseButton.innerHTML = "Pause";
 		setButton.style.display = "inline";
 		resetButton.style.display = "none";
+		document.querySelector(".buttons").style.height="78px"
 		startTimer = setInterval(() => {
 			msec++;
 			document.querySelector(".msec").innerHTML = msec;
@@ -36,6 +37,7 @@ const startPauseHandler = () => {
 		timerInProgress = false;
 		startPauseButton.innerHTML = "Resume";
 		resetButton.style.display = "block";
+		document.querySelector(".buttons").style.height="160px"
 	}
 };
 
