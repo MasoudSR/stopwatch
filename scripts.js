@@ -11,7 +11,8 @@ let startTimer;
 const startPauseHandler = () => {
 	if (!timerInProgress) {
 		startPauseButton.innerHTML = "Pause";
-		resetButton.style.display = "inline";
+		setButton.style.display = "inline";
+		resetButton.style.display = "none";
 		startTimer = setInterval(() => {
 			msec++;
 			document.querySelector(".msec").innerHTML = msec;
@@ -32,7 +33,8 @@ const startPauseHandler = () => {
 	} else {
 		clearInterval(startTimer);
 		timerInProgress = false;
-		startPauseButton.innerHTML = "Start";
+		startPauseButton.innerHTML = "Resume";
+		resetButton.style.display = "block";
 	}
 };
 
@@ -43,11 +45,14 @@ const resetHandler = () => {
 	document.querySelector(".min").innerHTML = "00";
 };
 
-const setHandler = ()=>{
-	const timeList = document.querySelector(".timeList")
-	timeList.innerHTML=`<p>${min}:${sec}:${msec}</p>`
-}
+const setHandler = () => {
+	const timeList = document.querySelector(".timeList");
+	timeList.style.display = "flex";
+	const p = document.createElement("p");
+	p.innerHTML = `${min}:${sec}:${msec}`;
+	timeList.prepend(p);
+};
 
 startPauseButton.addEventListener("click", startPauseHandler);
 resetButton.addEventListener("click", resetHandler);
-setButton.addEventListener("click", setHandler)
+setButton.addEventListener("click", setHandler);
